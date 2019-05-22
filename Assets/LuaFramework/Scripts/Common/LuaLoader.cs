@@ -35,7 +35,7 @@ namespace LuaFramework {
                 AssetBundle bundle = AssetBundle.LoadFromMemory(bytes);
                 if (bundle != null)
                 {
-                    bundleName = bundleName.Replace("lua/", "").Replace(".unity3d", "");
+                    bundleName = bundleName.Replace("lua/", "").Replace(".ab", "");
                     base.AddSearchBundle(bundleName.ToLower(), bundle);
                 }
             }

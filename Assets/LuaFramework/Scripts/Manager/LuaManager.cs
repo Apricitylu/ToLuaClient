@@ -84,23 +84,27 @@ namespace LuaFramework {
         /// </summary>
         void InitLuaBundle() {
             if (loader.beZip) {
-                loader.AddBundle("lua/lua.unity3d");
-                loader.AddBundle("lua/lua_math.unity3d");
-                loader.AddBundle("lua/lua_system.unity3d");
-                loader.AddBundle("lua/lua_system_reflection.unity3d");
-                loader.AddBundle("lua/lua_unityengine.unity3d");
-                loader.AddBundle("lua/lua_common.unity3d");
-                loader.AddBundle("lua/lua_logic.unity3d");
-                loader.AddBundle("lua/lua_view.unity3d");
-                loader.AddBundle("lua/lua_controller.unity3d");
-                loader.AddBundle("lua/lua_misc.unity3d");
+                loader.AddBundle("lua/lua.ab");
+                loader.AddBundle("lua/lua_math.ab");
+                loader.AddBundle("lua/lua_system.ab");
+                loader.AddBundle("lua/lua_system_reflection.ab");
+                loader.AddBundle("lua/lua_unityengine.ab");
+                loader.AddBundle("lua/lua_common.ab");
+                loader.AddBundle("lua/lua_logic.ab");
+                loader.AddBundle("lua/lua_view.ab");
+                loader.AddBundle("lua/lua_controller.ab");
+                loader.AddBundle("lua/lua_misc.ab");
 
-                loader.AddBundle("lua/lua_protobuf.unity3d");
-                loader.AddBundle("lua/lua_3rd_cjson.unity3d");
-                loader.AddBundle("lua/lua_3rd_luabitop.unity3d");
-                loader.AddBundle("lua/lua_3rd_pbc.unity3d");
-                loader.AddBundle("lua/lua_3rd_pblua.unity3d");
-                loader.AddBundle("lua/lua_3rd_sproto.unity3d");
+                loader.AddBundle("lua/lua_protobuf.ab");
+                loader.AddBundle("lua/lua_3rd_cjson.ab");
+                loader.AddBundle("lua/lua_3rd_luabitop.ab");
+                loader.AddBundle("lua/lua_3rd_pbc.ab");
+                loader.AddBundle("lua/lua_3rd_pblua.ab");
+                loader.AddBundle("lua/lua_3rd_sproto.ab");
+                
+                loader.AddBundle("prompt_asset.ab");
+                loader.AddBundle("shared_asset.ab");
+                Debug.Log("===========>");
             }
         }
 

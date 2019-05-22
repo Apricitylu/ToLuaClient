@@ -71,7 +71,7 @@ namespace LuaFramework {
             //释放所有文件到数据目录
             string[] files = File.ReadAllLines(outfile);
             foreach (var file in files) {
-                string[] fs = file.Split('|');
+                string[] fs = file.Split('=');
                 infile = resPath + fs[0];  //
                 outfile = dataPath + fs[0];
 
@@ -136,7 +136,7 @@ namespace LuaFramework {
 
             for (int i = 0; i < files.Length; i++) {
                 if (string.IsNullOrEmpty(files[i])) continue;
-                string[] keyValue = files[i].Split('|');
+                string[] keyValue = files[i].Split('=');
                 string f = keyValue[0];
                 string localfile = (dataPath + f).Trim();
                 string path = Path.GetDirectoryName(localfile);

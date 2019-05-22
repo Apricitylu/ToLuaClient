@@ -795,7 +795,7 @@ public static class ToLuaMenu
     static void BuildLuaBundle(string subDir, string sourceDir)
     {
         string[] files = Directory.GetFiles(sourceDir + subDir, "*.bytes");
-        string bundleName = subDir == null ? "lua.unity3d" : "lua" + subDir.Replace('/', '_') + ".unity3d";
+        string bundleName = subDir == null ? "lua.ab" : "lua" + subDir.Replace('/', '_') + ".ab";
         bundleName = bundleName.ToLower();
 
 #if UNITY_4_6 || UNITY_4_7
@@ -835,7 +835,7 @@ public static class ToLuaMenu
 
         if (Directory.Exists(osPath))
         {
-            string[] files = Directory.GetFiles(osPath, "Lua*.unity3d");
+            string[] files = Directory.GetFiles(osPath, "Lua*.ab");
 
             for (int i = 0; i < files.Length; i++)
             {

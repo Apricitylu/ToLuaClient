@@ -227,7 +227,7 @@ public class Packager {
 
             string md5 = Util.md5file(file);
             string value = file.Replace(resPath, string.Empty);
-            sw.WriteLine(value + "|" + md5);
+            sw.WriteLine(value + "=" + md5);
         }
         sw.Close(); fs.Close();
     }

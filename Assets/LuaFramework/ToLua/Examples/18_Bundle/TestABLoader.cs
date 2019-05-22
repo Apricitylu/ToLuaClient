@@ -62,7 +62,7 @@ public class TestABLoader : MonoBehaviour
         List<string> list = new List<string>(manifest.GetAllAssetBundles());        
 #else
         //此处应该配表获取
-        List<string> list = new List<string>() { "lua.unity3d", "lua_cjson.unity3d", "lua_system.unity3d", "lua_unityengine.unity3d", "lua_protobuf.unity3d", "lua_misc.unity3d", "lua_socket.unity3d", "lua_system_reflection.unity3d" };
+        List<string> list = new List<string>() { "lua.ab", "lua_cjson.ab", "lua_system.ab", "lua_unityengine.ab", "lua_protobuf.ab", "lua_misc.ab", "lua_socket.ab", "lua_system_reflection.ab" };
 #endif
         bundleCount = list.Count;
 
