@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_GameManagerWrap
+public class GameManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.GameManager), typeof(Manager));
+		L.BeginClass(typeof(GameManager), typeof(Manager));
 		L.RegFunction("CheckExtractResource", CheckExtractResource);
 		L.RegFunction("OnResourceInited", OnResourceInited);
 		L.RegFunction("__eq", op_Equality);
@@ -20,7 +20,7 @@ public class LuaFramework_GameManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.GameManager obj = (LuaFramework.GameManager)ToLua.CheckObject<LuaFramework.GameManager>(L, 1);
+			GameManager obj = (GameManager)ToLua.CheckObject<GameManager>(L, 1);
 			obj.CheckExtractResource();
 			return 0;
 		}
@@ -36,7 +36,7 @@ public class LuaFramework_GameManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.GameManager obj = (LuaFramework.GameManager)ToLua.CheckObject<LuaFramework.GameManager>(L, 1);
+			GameManager obj = (GameManager)ToLua.CheckObject<GameManager>(L, 1);
 			obj.OnResourceInited();
 			return 0;
 		}

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using LuaFramework;
 using System.Collections.Generic;
 
 public class AppView : View {

@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_LuaBehaviourWrap
+public class LuaBehaviourWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.LuaBehaviour), typeof(View));
+		L.BeginClass(typeof(LuaBehaviour), typeof(View));
 		L.RegFunction("AddClick", AddClick);
 		L.RegFunction("RemoveClick", RemoveClick);
 		L.RegFunction("ClearClick", ClearClick);
@@ -21,7 +21,7 @@ public class LuaFramework_LuaBehaviourWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 3);
-			LuaFramework.LuaBehaviour obj = (LuaFramework.LuaBehaviour)ToLua.CheckObject<LuaFramework.LuaBehaviour>(L, 1);
+			LuaBehaviour obj = (LuaBehaviour)ToLua.CheckObject<LuaBehaviour>(L, 1);
 			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 2, typeof(UnityEngine.GameObject));
 			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 3);
 			obj.AddClick(arg0, arg1);
@@ -39,7 +39,7 @@ public class LuaFramework_LuaBehaviourWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.LuaBehaviour obj = (LuaFramework.LuaBehaviour)ToLua.CheckObject<LuaFramework.LuaBehaviour>(L, 1);
+			LuaBehaviour obj = (LuaBehaviour)ToLua.CheckObject<LuaBehaviour>(L, 1);
 			UnityEngine.GameObject arg0 = (UnityEngine.GameObject)ToLua.CheckObject(L, 2, typeof(UnityEngine.GameObject));
 			obj.RemoveClick(arg0);
 			return 0;
@@ -56,7 +56,7 @@ public class LuaFramework_LuaBehaviourWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.LuaBehaviour obj = (LuaFramework.LuaBehaviour)ToLua.CheckObject<LuaFramework.LuaBehaviour>(L, 1);
+			LuaBehaviour obj = (LuaBehaviour)ToLua.CheckObject<LuaBehaviour>(L, 1);
 			obj.ClearClick();
 			return 0;
 		}

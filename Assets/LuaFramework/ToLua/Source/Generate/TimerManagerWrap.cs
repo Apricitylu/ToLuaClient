@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_TimerManagerWrap
+public class TimerManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.TimerManager), typeof(Manager));
+		L.BeginClass(typeof(TimerManager), typeof(Manager));
 		L.RegFunction("StartTimer", StartTimer);
 		L.RegFunction("StopTimer", StopTimer);
 		L.RegFunction("AddTimerEvent", AddTimerEvent);
@@ -25,7 +25,7 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)ToLua.CheckObject<LuaFramework.TimerManager>(L, 1);
+			TimerManager obj = (TimerManager)ToLua.CheckObject<TimerManager>(L, 1);
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.StartTimer(arg0);
 			return 0;
@@ -42,7 +42,7 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)ToLua.CheckObject<LuaFramework.TimerManager>(L, 1);
+			TimerManager obj = (TimerManager)ToLua.CheckObject<TimerManager>(L, 1);
 			obj.StopTimer();
 			return 0;
 		}
@@ -58,8 +58,8 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)ToLua.CheckObject<LuaFramework.TimerManager>(L, 1);
-			LuaFramework.TimerInfo arg0 = (LuaFramework.TimerInfo)ToLua.CheckObject<LuaFramework.TimerInfo>(L, 2);
+			TimerManager obj = (TimerManager)ToLua.CheckObject<TimerManager>(L, 1);
+			TimerInfo arg0 = (TimerInfo)ToLua.CheckObject<TimerInfo>(L, 2);
 			obj.AddTimerEvent(arg0);
 			return 0;
 		}
@@ -75,8 +75,8 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)ToLua.CheckObject<LuaFramework.TimerManager>(L, 1);
-			LuaFramework.TimerInfo arg0 = (LuaFramework.TimerInfo)ToLua.CheckObject<LuaFramework.TimerInfo>(L, 2);
+			TimerManager obj = (TimerManager)ToLua.CheckObject<TimerManager>(L, 1);
+			TimerInfo arg0 = (TimerInfo)ToLua.CheckObject<TimerInfo>(L, 2);
 			obj.RemoveTimerEvent(arg0);
 			return 0;
 		}
@@ -92,8 +92,8 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)ToLua.CheckObject<LuaFramework.TimerManager>(L, 1);
-			LuaFramework.TimerInfo arg0 = (LuaFramework.TimerInfo)ToLua.CheckObject<LuaFramework.TimerInfo>(L, 2);
+			TimerManager obj = (TimerManager)ToLua.CheckObject<TimerManager>(L, 1);
+			TimerInfo arg0 = (TimerInfo)ToLua.CheckObject<TimerInfo>(L, 2);
 			obj.StopTimerEvent(arg0);
 			return 0;
 		}
@@ -109,8 +109,8 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)ToLua.CheckObject<LuaFramework.TimerManager>(L, 1);
-			LuaFramework.TimerInfo arg0 = (LuaFramework.TimerInfo)ToLua.CheckObject<LuaFramework.TimerInfo>(L, 2);
+			TimerManager obj = (TimerManager)ToLua.CheckObject<TimerManager>(L, 1);
+			TimerInfo arg0 = (TimerInfo)ToLua.CheckObject<TimerInfo>(L, 2);
 			obj.ResumeTimerEvent(arg0);
 			return 0;
 		}
@@ -146,7 +146,7 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			o = ToLua.ToObject(L, 1);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)o;
+			TimerManager obj = (TimerManager)o;
 			float ret = obj.Interval;
 			LuaDLL.lua_pushnumber(L, ret);
 			return 1;
@@ -165,7 +165,7 @@ public class LuaFramework_TimerManagerWrap
 		try
 		{
 			o = ToLua.ToObject(L, 1);
-			LuaFramework.TimerManager obj = (LuaFramework.TimerManager)o;
+			TimerManager obj = (TimerManager)o;
 			float arg0 = (float)LuaDLL.luaL_checknumber(L, 2);
 			obj.Interval = arg0;
 			return 0;

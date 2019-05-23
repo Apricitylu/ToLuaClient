@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_LuaManagerWrap
+public class LuaManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.LuaManager), typeof(Manager));
+		L.BeginClass(typeof(LuaManager), typeof(Manager));
 		L.RegFunction("InitStart", InitStart);
 		L.RegFunction("DoFile", DoFile);
 		L.RegFunction("CallFunction", CallFunction);
@@ -23,7 +23,7 @@ public class LuaFramework_LuaManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.LuaManager obj = (LuaFramework.LuaManager)ToLua.CheckObject<LuaFramework.LuaManager>(L, 1);
+			LuaManager obj = (LuaManager)ToLua.CheckObject<LuaManager>(L, 1);
 			obj.InitStart();
 			return 0;
 		}
@@ -39,7 +39,7 @@ public class LuaFramework_LuaManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.LuaManager obj = (LuaFramework.LuaManager)ToLua.CheckObject<LuaFramework.LuaManager>(L, 1);
+			LuaManager obj = (LuaManager)ToLua.CheckObject<LuaManager>(L, 1);
 			string arg0 = ToLua.CheckString(L, 2);
 			obj.DoFile(arg0);
 			return 0;
@@ -56,7 +56,7 @@ public class LuaFramework_LuaManagerWrap
 		try
 		{
 			int count = LuaDLL.lua_gettop(L);
-			LuaFramework.LuaManager obj = (LuaFramework.LuaManager)ToLua.CheckObject<LuaFramework.LuaManager>(L, 1);
+			LuaManager obj = (LuaManager)ToLua.CheckObject<LuaManager>(L, 1);
 			string arg0 = ToLua.CheckString(L, 2);
 			object[] arg1 = ToLua.ToParamsObject(L, 3, count - 2);
 			object[] o = obj.CallFunction(arg0, arg1);
@@ -75,7 +75,7 @@ public class LuaFramework_LuaManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.LuaManager obj = (LuaFramework.LuaManager)ToLua.CheckObject<LuaFramework.LuaManager>(L, 1);
+			LuaManager obj = (LuaManager)ToLua.CheckObject<LuaManager>(L, 1);
 			obj.LuaGC();
 			return 0;
 		}
@@ -91,7 +91,7 @@ public class LuaFramework_LuaManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.LuaManager obj = (LuaFramework.LuaManager)ToLua.CheckObject<LuaFramework.LuaManager>(L, 1);
+			LuaManager obj = (LuaManager)ToLua.CheckObject<LuaManager>(L, 1);
 			obj.Close();
 			return 0;
 		}

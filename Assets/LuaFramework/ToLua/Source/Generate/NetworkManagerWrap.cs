@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_NetworkManagerWrap
+public class NetworkManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.NetworkManager), typeof(Manager));
+		L.BeginClass(typeof(NetworkManager), typeof(Manager));
 		L.RegFunction("OnInit", OnInit);
 		L.RegFunction("Unload", Unload);
 		L.RegFunction("CallMethod", CallMethod);
@@ -24,7 +24,7 @@ public class LuaFramework_NetworkManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+			NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 			obj.OnInit();
 			return 0;
 		}
@@ -40,7 +40,7 @@ public class LuaFramework_NetworkManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+			NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 			obj.Unload();
 			return 0;
 		}
@@ -56,7 +56,7 @@ public class LuaFramework_NetworkManagerWrap
 		try
 		{
 			int count = LuaDLL.lua_gettop(L);
-			LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+			NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 			string arg0 = ToLua.CheckString(L, 2);
 			object[] arg1 = ToLua.ToParamsObject(L, 3, count - 2);
 			object[] o = obj.CallMethod(arg0, arg1);
@@ -76,8 +76,8 @@ public class LuaFramework_NetworkManagerWrap
 		{
 			ToLua.CheckArgsCount(L, 2);
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 1);
-			LuaFramework.ByteBuffer arg1 = (LuaFramework.ByteBuffer)ToLua.CheckObject<LuaFramework.ByteBuffer>(L, 2);
-			LuaFramework.NetworkManager.AddEvent(arg0, arg1);
+			ByteBuffer arg1 = (ByteBuffer)ToLua.CheckObject<ByteBuffer>(L, 2);
+			NetworkManager.AddEvent(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)
@@ -92,7 +92,7 @@ public class LuaFramework_NetworkManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+			NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 			obj.SendConnect();
 			return 0;
 		}
@@ -111,21 +111,21 @@ public class LuaFramework_NetworkManagerWrap
 
 			if (count == 2 && TypeChecker.CheckTypes<string>(L, 2))
 			{
-				LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+				NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 				string arg0 = ToLua.ToString(L, 2);
 				obj.SendMessage(arg0);
 				return 0;
 			}
-			else if (count == 2 && TypeChecker.CheckTypes<LuaFramework.ByteBuffer>(L, 2))
+			else if (count == 2 && TypeChecker.CheckTypes<ByteBuffer>(L, 2))
 			{
-				LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
-				LuaFramework.ByteBuffer arg0 = (LuaFramework.ByteBuffer)ToLua.ToObject(L, 2);
+				NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
+				ByteBuffer arg0 = (ByteBuffer)ToLua.ToObject(L, 2);
 				obj.SendMessage(arg0);
 				return 0;
 			}
 			else if (count == 3 && TypeChecker.CheckTypes<UnityEngine.SendMessageOptions>(L, 3))
 			{
-				LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+				NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 				string arg0 = ToLua.CheckString(L, 2);
 				UnityEngine.SendMessageOptions arg1 = (UnityEngine.SendMessageOptions)ToLua.ToObject(L, 3);
 				obj.SendMessage(arg0, arg1);
@@ -133,7 +133,7 @@ public class LuaFramework_NetworkManagerWrap
 			}
 			else if (count == 3 && TypeChecker.CheckTypes<object>(L, 3))
 			{
-				LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+				NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 				string arg0 = ToLua.CheckString(L, 2);
 				object arg1 = ToLua.ToVarObject(L, 3);
 				obj.SendMessage(arg0, arg1);
@@ -141,7 +141,7 @@ public class LuaFramework_NetworkManagerWrap
 			}
 			else if (count == 4)
 			{
-				LuaFramework.NetworkManager obj = (LuaFramework.NetworkManager)ToLua.CheckObject<LuaFramework.NetworkManager>(L, 1);
+				NetworkManager obj = (NetworkManager)ToLua.CheckObject<NetworkManager>(L, 1);
 				string arg0 = ToLua.CheckString(L, 2);
 				object arg1 = ToLua.ToVarObject(L, 3);
 				UnityEngine.SendMessageOptions arg2 = (UnityEngine.SendMessageOptions)ToLua.CheckObject(L, 4, typeof(UnityEngine.SendMessageOptions));
@@ -150,7 +150,7 @@ public class LuaFramework_NetworkManagerWrap
 			}
 			else
 			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to method: LuaFramework.NetworkManager.SendMessage");
+				return LuaDLL.luaL_throw(L, "invalid arguments to method: NetworkManager.SendMessage");
 			}
 		}
 		catch (Exception e)

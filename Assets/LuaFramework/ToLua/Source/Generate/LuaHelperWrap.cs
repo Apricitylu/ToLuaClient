@@ -2,7 +2,7 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_LuaHelperWrap
+public class LuaHelperWrap
 {
 	public static void Register(LuaState L)
 	{
@@ -24,7 +24,7 @@ public class LuaFramework_LuaHelperWrap
 		{
 			ToLua.CheckArgsCount(L, 1);
 			string arg0 = ToLua.CheckString(L, 1);
-			System.Type o = LuaFramework.LuaHelper.GetType(arg0);
+			System.Type o = LuaHelper.GetType(arg0);
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -40,7 +40,7 @@ public class LuaFramework_LuaHelperWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 0);
-			LuaFramework.PanelManager o = LuaFramework.LuaHelper.GetPanelManager();
+			PanelManager o = LuaHelper.GetPanelManager();
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -56,7 +56,7 @@ public class LuaFramework_LuaHelperWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 0);
-			LuaFramework.ResourceManager o = LuaFramework.LuaHelper.GetResManager();
+			ResourceManager o = LuaHelper.GetResManager();
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -72,7 +72,7 @@ public class LuaFramework_LuaHelperWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 0);
-			LuaFramework.NetworkManager o = LuaFramework.LuaHelper.GetNetManager();
+			NetworkManager o = LuaHelper.GetNetManager();
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -88,7 +88,7 @@ public class LuaFramework_LuaHelperWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 0);
-			LuaFramework.SoundManager o = LuaFramework.LuaHelper.GetSoundManager();
+			SoundManager o = LuaHelper.GetSoundManager();
 			ToLua.Push(L, o);
 			return 1;
 		}
@@ -106,7 +106,7 @@ public class LuaFramework_LuaHelperWrap
 			ToLua.CheckArgsCount(L, 2);
 			LuaByteBuffer arg0 = new LuaByteBuffer(ToLua.CheckByteBuffer(L, 1));
 			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
-			LuaFramework.LuaHelper.OnCallLuaFunc(arg0, arg1);
+			LuaHelper.OnCallLuaFunc(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)
@@ -123,7 +123,7 @@ public class LuaFramework_LuaHelperWrap
 			ToLua.CheckArgsCount(L, 2);
 			string arg0 = ToLua.CheckString(L, 1);
 			LuaFunction arg1 = ToLua.CheckLuaFunction(L, 2);
-			LuaFramework.LuaHelper.OnJsonCallFunc(arg0, arg1);
+			LuaHelper.OnJsonCallFunc(arg0, arg1);
 			return 0;
 		}
 		catch (Exception e)

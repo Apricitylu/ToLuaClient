@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_SoundManagerWrap
+public class SoundManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.SoundManager), typeof(Manager));
+		L.BeginClass(typeof(SoundManager), typeof(Manager));
 		L.RegFunction("LoadAudioClip", LoadAudioClip);
 		L.RegFunction("CanPlayBackSound", CanPlayBackSound);
 		L.RegFunction("PlayBacksound", PlayBacksound);
@@ -23,7 +23,7 @@ public class LuaFramework_SoundManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 2);
-			LuaFramework.SoundManager obj = (LuaFramework.SoundManager)ToLua.CheckObject<LuaFramework.SoundManager>(L, 1);
+			SoundManager obj = (SoundManager)ToLua.CheckObject<SoundManager>(L, 1);
 			string arg0 = ToLua.CheckString(L, 2);
 			UnityEngine.AudioClip o = obj.LoadAudioClip(arg0);
 			ToLua.PushSealed(L, o);
@@ -41,7 +41,7 @@ public class LuaFramework_SoundManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.SoundManager obj = (LuaFramework.SoundManager)ToLua.CheckObject<LuaFramework.SoundManager>(L, 1);
+			SoundManager obj = (SoundManager)ToLua.CheckObject<SoundManager>(L, 1);
 			bool o = obj.CanPlayBackSound();
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
@@ -58,7 +58,7 @@ public class LuaFramework_SoundManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 3);
-			LuaFramework.SoundManager obj = (LuaFramework.SoundManager)ToLua.CheckObject<LuaFramework.SoundManager>(L, 1);
+			SoundManager obj = (SoundManager)ToLua.CheckObject<SoundManager>(L, 1);
 			string arg0 = ToLua.CheckString(L, 2);
 			bool arg1 = LuaDLL.luaL_checkboolean(L, 3);
 			obj.PlayBacksound(arg0, arg1);
@@ -76,7 +76,7 @@ public class LuaFramework_SoundManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 1);
-			LuaFramework.SoundManager obj = (LuaFramework.SoundManager)ToLua.CheckObject<LuaFramework.SoundManager>(L, 1);
+			SoundManager obj = (SoundManager)ToLua.CheckObject<SoundManager>(L, 1);
 			bool o = obj.CanPlaySoundEffect();
 			LuaDLL.lua_pushboolean(L, o);
 			return 1;
@@ -93,7 +93,7 @@ public class LuaFramework_SoundManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 3);
-			LuaFramework.SoundManager obj = (LuaFramework.SoundManager)ToLua.CheckObject<LuaFramework.SoundManager>(L, 1);
+			SoundManager obj = (SoundManager)ToLua.CheckObject<SoundManager>(L, 1);
 			UnityEngine.AudioClip arg0 = (UnityEngine.AudioClip)ToLua.CheckObject(L, 2, typeof(UnityEngine.AudioClip));
 			UnityEngine.Vector3 arg1 = ToLua.ToVector3(L, 3);
 			obj.Play(arg0, arg1);

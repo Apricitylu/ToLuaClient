@@ -2,12 +2,12 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_AppConstWrap
+public class AppConstWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.AppConst), typeof(System.Object));
-		L.RegFunction("New", _CreateLuaFramework_AppConst);
+		L.BeginClass(typeof(AppConst), typeof(System.Object));
+		L.RegFunction("New", _CreateAppConst);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegConstant("DebugMode", 0);
 		L.RegConstant("ExampleMode", 1);
@@ -30,7 +30,7 @@ public class LuaFramework_AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int _CreateLuaFramework_AppConst(IntPtr L)
+	static int _CreateAppConst(IntPtr L)
 	{
 		try
 		{
@@ -38,13 +38,13 @@ public class LuaFramework_AppConstWrap
 
 			if (count == 0)
 			{
-				LuaFramework.AppConst obj = new LuaFramework.AppConst();
+				AppConst obj = new AppConst();
 				ToLua.PushObject(L, obj);
 				return 1;
 			}
 			else
 			{
-				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: LuaFramework.AppConst.New");
+				return LuaDLL.luaL_throw(L, "invalid arguments to ctor method: AppConst.New");
 			}
 		}
 		catch (Exception e)
@@ -58,7 +58,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.AppName);
+			LuaDLL.lua_pushstring(L, AppConst.AppName);
 			return 1;
 		}
 		catch (Exception e)
@@ -72,7 +72,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.LuaTempDir);
+			LuaDLL.lua_pushstring(L, AppConst.LuaTempDir);
 			return 1;
 		}
 		catch (Exception e)
@@ -86,7 +86,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.AppPrefix);
+			LuaDLL.lua_pushstring(L, AppConst.AppPrefix);
 			return 1;
 		}
 		catch (Exception e)
@@ -100,7 +100,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.ExtName);
+			LuaDLL.lua_pushstring(L, AppConst.ExtName);
 			return 1;
 		}
 		catch (Exception e)
@@ -114,7 +114,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.AssetDir);
+			LuaDLL.lua_pushstring(L, AppConst.AssetDir);
 			return 1;
 		}
 		catch (Exception e)
@@ -128,7 +128,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.WebUrl);
+			LuaDLL.lua_pushstring(L, AppConst.WebUrl);
 			return 1;
 		}
 		catch (Exception e)
@@ -142,7 +142,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.UserId);
+			LuaDLL.lua_pushstring(L, AppConst.UserId);
 			return 1;
 		}
 		catch (Exception e)
@@ -156,7 +156,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushinteger(L, LuaFramework.AppConst.SocketPort);
+			LuaDLL.lua_pushinteger(L, AppConst.SocketPort);
 			return 1;
 		}
 		catch (Exception e)
@@ -170,7 +170,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.SocketAddress);
+			LuaDLL.lua_pushstring(L, AppConst.SocketAddress);
 			return 1;
 		}
 		catch (Exception e)
@@ -184,7 +184,7 @@ public class LuaFramework_AppConstWrap
 	{
 		try
 		{
-			LuaDLL.lua_pushstring(L, LuaFramework.AppConst.FrameworkRoot);
+			LuaDLL.lua_pushstring(L, AppConst.FrameworkRoot);
 			return 1;
 		}
 		catch (Exception e)
@@ -199,7 +199,7 @@ public class LuaFramework_AppConstWrap
 		try
 		{
 			string arg0 = ToLua.CheckString(L, 2);
-			LuaFramework.AppConst.UserId = arg0;
+			AppConst.UserId = arg0;
 			return 0;
 		}
 		catch (Exception e)
@@ -214,7 +214,7 @@ public class LuaFramework_AppConstWrap
 		try
 		{
 			int arg0 = (int)LuaDLL.luaL_checknumber(L, 2);
-			LuaFramework.AppConst.SocketPort = arg0;
+			AppConst.SocketPort = arg0;
 			return 0;
 		}
 		catch (Exception e)
@@ -229,7 +229,7 @@ public class LuaFramework_AppConstWrap
 		try
 		{
 			string arg0 = ToLua.CheckString(L, 2);
-			LuaFramework.AppConst.SocketAddress = arg0;
+			AppConst.SocketAddress = arg0;
 			return 0;
 		}
 		catch (Exception e)

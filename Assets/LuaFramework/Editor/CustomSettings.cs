@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using LuaInterface;
-using LuaFramework;
 using UnityEditor;
 
 using BindType = ToLuaMenu.BindType;

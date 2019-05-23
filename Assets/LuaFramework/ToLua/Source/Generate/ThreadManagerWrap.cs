@@ -2,11 +2,11 @@
 using System;
 using LuaInterface;
 
-public class LuaFramework_ThreadManagerWrap
+public class ThreadManagerWrap
 {
 	public static void Register(LuaState L)
 	{
-		L.BeginClass(typeof(LuaFramework.ThreadManager), typeof(Manager));
+		L.BeginClass(typeof(ThreadManager), typeof(Manager));
 		L.RegFunction("AddEvent", AddEvent);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
@@ -19,7 +19,7 @@ public class LuaFramework_ThreadManagerWrap
 		try
 		{
 			ToLua.CheckArgsCount(L, 3);
-			LuaFramework.ThreadManager obj = (LuaFramework.ThreadManager)ToLua.CheckObject<LuaFramework.ThreadManager>(L, 1);
+			ThreadManager obj = (ThreadManager)ToLua.CheckObject<ThreadManager>(L, 1);
 			ThreadEvent arg0 = (ThreadEvent)ToLua.CheckObject<ThreadEvent>(L, 2);
 			System.Action<NotiData> arg1 = (System.Action<NotiData>)ToLua.CheckDelegate<System.Action<NotiData>>(L, 3);
 			obj.AddEvent(arg0, arg1);
