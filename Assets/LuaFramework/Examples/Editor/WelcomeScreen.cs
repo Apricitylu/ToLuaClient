@@ -46,7 +46,7 @@ public class WelcomeScreen : EditorWindow
 
 
     Texture LoadTexture(string name) {
-        string path = "Assets/Examples/Editor Default Resources/";
+        string path = "Assets/LuaFramework/Examples/Editor Default Resources/";
         return (Texture)AssetDatabase.LoadAssetAtPath(path + name, typeof(Texture));
     }
 
@@ -123,7 +123,7 @@ public class WelcomeScreen : EditorWindow
         }
     }
 
-    [UnityEditor.MenuItem("Tools/Welcome Screen", false, 1)]
+    [UnityEditor.MenuItem("LuaFramework/Welcome Screen", false, 1)]
     public static void ShowWindow()
     {
         WelcomeScreen window = EditorWindow.GetWindow<WelcomeScreen>(true, "Welcome to LuaFramework");

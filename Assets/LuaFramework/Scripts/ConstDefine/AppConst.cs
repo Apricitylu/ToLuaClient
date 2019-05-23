@@ -24,7 +24,7 @@ public class AppConst
     public const int TimerInterval = 1;
     public const int GameFrameRate = 30;                        //游戏帧频
 
-    public const string AppName = "ToLuaClient";               //应用程序名称
+    public const string AppName = "LuaFramework";               //应用程序名称
     public const string LuaTempDir = "Lua/";                    //临时目录
     public const string AppPrefix = AppName + "_";              //应用程序前缀
     public const string ExtName = ".ab";                   //素材扩展名
@@ -39,7 +39,7 @@ public class AppConst
     {
         get
         {
-            return Application.dataPath;
+            return Application.dataPath + "/" + AppName;
         }
     }
 }

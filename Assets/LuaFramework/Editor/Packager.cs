@@ -26,10 +26,10 @@ public class Packager {
     /// </summary>
     static UnityEngine.Object LoadAsset(string file) {
         if (file.EndsWith(".lua")) file += ".txt";
-        return AssetDatabase.LoadMainAssetAtPath("Assets/Examples/Builds/" + file);
+        return AssetDatabase.LoadMainAssetAtPath("Assets/LuaFramework/Examples/Builds/" + file);
     }
 
-    [MenuItem("Tools/Build iPhone Resource", false, 100)]
+    [MenuItem("LuaFramework/Build iPhone Resource", false, 100)]
     public static void BuildiPhoneResource() {
         BuildTarget target;
 #if UNITY_5
@@ -40,12 +40,12 @@ public class Packager {
         BuildAssetResource(target);
     }
 
-    [MenuItem("Tools/Build Android Resource", false, 101)]
+    [MenuItem("LuaFramework/Build Android Resource", false, 101)]
     public static void BuildAndroidResource() {
         BuildAssetResource(BuildTarget.Android);
     }
 
-    [MenuItem("Tools/Build Windows Resource", false, 102)]
+    [MenuItem("LuaFramework/Build Windows Resource", false, 102)]
     public static void BuildWindowsResource() {
         BuildAssetResource(BuildTarget.StandaloneWindows);
     }
@@ -160,11 +160,11 @@ public class Packager {
         string resPath = AppDataPath + "/" + AppConst.AssetDir + "/";
         if (!Directory.Exists(resPath)) Directory.CreateDirectory(resPath);
 
-        AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/Examples/Builds/Prompt");
-        AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/Examples/Builds/Message");
+        AddBuildMap("prompt" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Prompt");
+        AddBuildMap("message" + AppConst.ExtName, "*.prefab", "Assets/LuaFramework/Examples/Builds/Message");
 
-        AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/Examples/Textures/Prompt");
-        AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/Examples/Textures/Shared");
+        AddBuildMap("prompt_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Prompt");
+        AddBuildMap("shared_asset" + AppConst.ExtName, "*.png", "Assets/LuaFramework/Examples/Textures/Shared");
     }
 
     /// <summary>
@@ -178,8 +178,8 @@ public class Packager {
         if (!Directory.Exists(luaPath)) {
             Directory.CreateDirectory(luaPath); 
         }
-        string[] luaPaths = { AppDataPath + "/lua/", 
-                              AppDataPath + "/Tolua/Lua/" };
+        string[] luaPaths = { AppDataPath + "/LuaFramework/lua/", 
+                              AppDataPath + "/LuaFramework/Tolua/Lua/" };
 
         for (int i = 0; i < luaPaths.Length; i++) {
             paths.Clear(); files.Clear();
@@ -296,7 +296,7 @@ public class Packager {
         Directory.SetCurrentDirectory(currDir);
     }
 
-    [MenuItem("Tools/Build Protobuf-lua-gen File")]
+    [MenuItem("LuaFramework/Build Protobuf-lua-gen File")]
     public static void BuildProtobufFile() {
         if (!AppConst.ExampleMode) {
             UnityEngine.Debug.LogError("若使用编码Protobuf-lua-gen功能，需要自己配置外部环境！！");
