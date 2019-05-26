@@ -1,7 +1,4 @@
-﻿/* 
- LuaFramework Code By Jarjin lee
-*/
-
+﻿
 using System;
 public class Message : IMessage
 {
