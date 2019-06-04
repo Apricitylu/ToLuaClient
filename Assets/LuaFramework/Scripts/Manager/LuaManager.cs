@@ -113,10 +113,6 @@ public class LuaManager : Manager
             loader.AddBundle("lua/lua_3rd_pbc.ab");
             loader.AddBundle("lua/lua_3rd_pblua.ab");
             loader.AddBundle("lua/lua_3rd_sproto.ab");
-
-            loader.AddBundle("prompt_asset.ab");
-            loader.AddBundle("shared_asset.ab");
-            Debug.Log("===========>");
         }
     }
 
